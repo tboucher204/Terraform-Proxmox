@@ -2,10 +2,11 @@ resource "proxmox_vm_qemu" "proxmox_vm_master" {
   count       = var.num_masters
   name        = "master${count.index + 1}"
   vmid        = "${count.index + var.master_vmid_begin}"
+  desc        = "${master_desc}"
   target_node = var.pm_node_name
   clone       = var.template_vm_name
-  full_clone  = true
-  startup     = true
+  onboot      = true
+  oncreate    = true
   os_type     = "cloud-init"
   bios        = "seabios"
   agent       = 1
@@ -40,10 +41,11 @@ resource "proxmox_vm_qemu" "proxmox_vm_workers" {
   count       = var.num_nodes
   name        = "worker${count.index + 1}"
   vmid        = "${count.index + var.node_vmid_begin}"
+  desc        = "${node_desc}"
   target_node = var.pm_node_name
   clone       = var.template_vm_name
-  full_clone  = true
-  startup     = true
+  onboot      = true
+  oncreate    = true
   os_type     = "cloud-init"
   bios        = "seabios"
   agent       = 1

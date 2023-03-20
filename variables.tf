@@ -61,9 +61,14 @@ variable "num_masters_mem" {
   default = "4096"
 }
 
+variable "master_desc" {
+  description = "Node description to be added to notes"
+  default = "Master Node"
+}
+
 variable "master_vmid_begin" {
   description = "Enter the number to begin with for selecting the vmid."
-  default = "300"
+  default = 300
 }
 
 variable "master_disk_size" {
@@ -94,9 +99,14 @@ variable "num_nodes_mem" {
   default = "4096"
 }
 
+variable "node_desc" {
+  description = "Node description to be added to notes"
+  default = "Worker Node"
+}
+
 variable "node_vmid_begin" {
   description = "Enter the number to begin with for selecting the vmid."
-  default = "310"
+  default = 310
 }
 
 variable "node_disk_size" {
