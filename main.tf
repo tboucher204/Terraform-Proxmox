@@ -14,11 +14,9 @@ resource "proxmox_vm_qemu" "proxmox_vm_master" {
   cpu         = "host"
   ci_wait     = 10
   disk {
-    slot = 0
     size = var.master_disk_size
     type = var.master_disk_type
     storage = var.master_disk_location
-    iothread = 1
   }
   network {
         bridge    = "vmbr0"
@@ -54,11 +52,9 @@ resource "proxmox_vm_qemu" "proxmox_vm_workers" {
   cpu         = "host"
   ci_wait     = 2
   disk {
-    slot = 0
     size = var.node_disk_size
     type = var.node_disk_type
     storage = var.node_disk_location
-    iothread = 1
   }
   network {
         bridge    = "vmbr0"
