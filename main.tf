@@ -8,12 +8,10 @@ resource "proxmox_vm_qemu" "proxmox_vm_master" {
   onboot      = true
   oncreate    = true
   os_type     = "cloud-init"
-  bios        = "seabios"
   agent       = 1
   memory      = var.num_masters_mem
-  cores       = 4
-  cpu         = "host"
   ci_wait     = 10
+  scsihw      = "virtio-scsi-pci"
   disk {
     size = var.master_disk_size
     type = var.master_disk_type
@@ -47,12 +45,10 @@ resource "proxmox_vm_qemu" "proxmox_vm_workers" {
   onboot      = true
   oncreate    = true
   os_type     = "cloud-init"
-  bios        = "seabios"
   agent       = 1
   memory      = var.num_nodes_mem
-  cores       = 4
-  cpu         = "host"
   ci_wait     = 10
+  scsihw      = "virtio-scsi-pci"
   disk {
     size = var.node_disk_size
     type = var.node_disk_type

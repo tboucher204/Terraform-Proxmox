@@ -90,7 +90,7 @@ variable "master_disk_size" {
 variable "master_disk_type" {
   description = "What interface type are you using? ie. scsi"
   type        = string
-  default     = "virtio-scsi-pci"
+  default     = "scsi"
 }
 
 variable "master_disk_location" {
@@ -139,7 +139,7 @@ variable "node_disk_size" {
 variable "node_disk_type" {
   description = "What interface type are you using? ie. scsi"
   type        = string
-  default     = "virtio-scsi-pci"
+  default     = "scsi"
 }
 
 variable "node_disk_location" {
