@@ -10,6 +10,7 @@ resource "proxmox_vm_qemu" "proxmox_vm_master" {
   os_type     = "cloud-init"
   agent       = 1
   memory      = var.num_masters_mem
+  cores       = 4
   ci_wait     = 10
   scsihw      = "virtio-scsi-pci"
   disk {
@@ -47,7 +48,8 @@ resource "proxmox_vm_qemu" "proxmox_vm_workers" {
   os_type     = "cloud-init"
   agent       = 1
   memory      = var.num_nodes_mem
-  ci_wait     = 10
+  cores       = 6
+  ci_wait     = 60
   scsihw      = "virtio-scsi-pci"
   disk {
     size = var.node_disk_size
