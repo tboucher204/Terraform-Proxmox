@@ -2,14 +2,28 @@ variable "pm_user" {
   description = "The username for the proxmox user"
   type        = string
   sensitive   = false
-  default     = "root"
+  default     = "tboucher204"
 
 }
 variable "pm_password" {
   description = "The password for the proxmox user"
   type        = string
   sensitive   = true
-  default     = "P@ssw0rd1"
+  default     = "73345Map!"
+}
+
+variable "pm_api_token_id" {
+  description = "The api token id for the proxmox user"
+  type        = string
+  sensitive   = false
+  default     = "terraform@pam!tokenid03202023"
+
+}
+variable "pm_api_token_secret" {
+  description = "The token secret for the proxmox user"
+  type        = string
+  sensitive   = true
+  default     = "499f2d43-85b8-4df6-bbe5-ba3912beea11"
 }
 
 variable "pm_tls_insecure" {
