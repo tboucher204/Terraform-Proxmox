@@ -4,6 +4,7 @@ resource "proxmox_vm_qemu" "proxmox_vm_master" {
   target_node = var.pm_node_name
   clone       = var.template_vm_name
   full_clone  = true
+  startup     = true
   os_type     = "cloud-init"
   bios        = "seabios"
   agent       = 1
@@ -17,6 +18,12 @@ resource "proxmox_vm_qemu" "proxmox_vm_master" {
     storage = var.master_disk_location
     iothread = 1
   }
+  network {
+        bridge    = "vmbr0"
+        firewall  = true
+        link_down = false
+        model     = "virtio"
+    }
   ipconfig0 = "ip=${var.master_ips[count.index]}/${var.networkrange},gw=${var.gateway}"
 
   lifecycle {
@@ -35,6 +42,7 @@ resource "proxmox_vm_qemu" "proxmox_vm_workers" {
   target_node = var.pm_node_name
   clone       = var.template_vm_name
   full_clone  = true
+  startup     = true
   os_type     = "cloud-init"
   bios        = "seabios"
   agent       = 1
@@ -48,6 +56,12 @@ resource "proxmox_vm_qemu" "proxmox_vm_workers" {
     storage = var.node_disk_location
     iothread = 1
   }
+  network {
+        bridge    = "vmbr0"
+        firewall  = true
+        link_down = false
+        model     = "virtio"
+    }
   ipconfig0 = "ip=${var.worker_ips[count.index]}/${var.networkrange},gw=${var.gateway}"
 
   lifecycle {
