@@ -55,9 +55,15 @@ variable "num_masters" {
   default = 1
 }
 
+
 variable "num_masters_mem" {
   description = "Enter the value for the amount of RAM for your masters. ie. 4096"
   default = "4096"
+}
+
+variable "master_vmid_begin" {
+  description = "Enter the number to begin with for selecting the vmid."
+  default = "300"
 }
 
 variable "master_disk_size" {
@@ -86,6 +92,11 @@ variable "num_nodes" {
 variable "num_nodes_mem" {
   description = "Enter the value for the amount of RAM for your worker nodes. ie. 2048"
   default = "4096"
+}
+
+variable "node_vmid_begin" {
+  description = "Enter the number to begin with for selecting the vmid."
+  default = "310"
 }
 
 variable "node_disk_size" {

@@ -1,6 +1,7 @@
 resource "proxmox_vm_qemu" "proxmox_vm_master" {
   count       = var.num_masters
-  name        = "master-${count.index+1}"
+  name        = "master${count.index + 1}"
+  vmid        = "${count.index + var.master_vmid_begin}"
   target_node = var.pm_node_name
   clone       = var.template_vm_name
   full_clone  = true
@@ -38,7 +39,8 @@ resource "proxmox_vm_qemu" "proxmox_vm_master" {
 
 resource "proxmox_vm_qemu" "proxmox_vm_workers" {
   count       = var.num_nodes
-  name        = "worker-${count.index+1}"
+  name        = "worker${count.index + 1}"
+  vmid        = "${count.index + var.node_vmid_begin}"
   target_node = var.pm_node_name
   clone       = var.template_vm_name
   full_clone  = true
