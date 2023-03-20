@@ -61,6 +61,16 @@ variable "num_masters_mem" {
   default = "4096"
 }
 
+variable "master_names" {
+  description = "List of host names for master nodes"
+  type        = list(string)
+  default     = [
+    "Elrond",
+    "Galadriel",
+    "Thranduil"
+  ]
+}
+
 variable "master_desc" {
   description = "Node description to be added to notes"
   default = "Master Node"
@@ -97,6 +107,17 @@ variable "num_nodes" {
 variable "num_nodes_mem" {
   description = "Enter the value for the amount of RAM for your worker nodes. ie. 2048"
   default = "4096"
+}
+
+variable "node_names" {
+  description = "List of host names for worker nodes"
+  type        = list(string)
+  default     = [
+    "Elladan",
+    "Elrohir",
+    "Celebrian",
+    "Legolas"
+  ]
 }
 
 variable "node_desc" {

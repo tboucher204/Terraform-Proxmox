@@ -1,6 +1,6 @@
 resource "proxmox_vm_qemu" "proxmox_vm_master" {
   count       = var.num_masters
-  name        = "master${count.index + 1}"
+  name        = "${var.master_names[count.index]}"
   vmid        = "${count.index + var.master_vmid_begin}"
   desc        = var.master_desc
   target_node = var.pm_node_name
@@ -39,7 +39,7 @@ resource "proxmox_vm_qemu" "proxmox_vm_master" {
 
 resource "proxmox_vm_qemu" "proxmox_vm_workers" {
   count       = var.num_nodes
-  name        = "worker${count.index + 1}"
+  name        = "${var.node_names[count.index]}"
   vmid        = "${count.index + var.node_vmid_begin}"
   desc        = var.node_desc
   target_node = var.pm_node_name
@@ -52,7 +52,7 @@ resource "proxmox_vm_qemu" "proxmox_vm_workers" {
   memory      = var.num_nodes_mem
   cores       = 4
   cpu         = "host"
-  ci_wait     = 2
+  ci_wait     = 10
   disk {
     size = var.node_disk_size
     type = var.node_disk_type
