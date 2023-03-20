@@ -33,7 +33,7 @@ variable "pm_node_name" {
 variable "pvt_key" {
   description = "private key file"
   type        = string
-  default     = "none"
+  default     = "priv_key"
 }
 
 variable "num_masters" {
