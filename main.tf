@@ -16,7 +16,6 @@ resource "proxmox_vm_qemu" "proxmox_vm_master" {
   disk {
     backup  = true
     cache   = "none"
-    file    = "vm-${each.value.vmid}-disk-0"
     size = var.master_disk_size
     type = var.master_disk_type
     storage = var.master_disk_location
@@ -58,7 +57,6 @@ resource "proxmox_vm_qemu" "proxmox_vm_workers" {
   disk {
     backup  = true
     cache   = "none"
-    file    = "vm-${each.value.vmid}-disk-0"
     size = var.node_disk_size
     type = var.node_disk_type
     storage = var.node_disk_location
