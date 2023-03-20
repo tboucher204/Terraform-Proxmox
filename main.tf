@@ -12,7 +12,7 @@ resource "proxmox_vm_qemu" "proxmox_vm_master" {
   memory      = var.num_masters_mem
   cores       = 4
   cpu         = "host"
-  ci_wait     = 2
+  ci_wait     = 10
   disk {
     slot = 0
     size = var.master_disk_size
