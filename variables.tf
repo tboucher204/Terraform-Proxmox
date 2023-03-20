@@ -16,14 +16,14 @@ variable "pm_api_token_id" {
   description = "The api token id for the proxmox user"
   type        = string
   sensitive   = false
-  default     = "terraform@pam!tokenid03202023"
+  default     = "terraform@pam!tokenid20230320"
 
 }
 variable "pm_api_token_secret" {
   description = "The token secret for the proxmox user"
   type        = string
   sensitive   = true
-  default     = "499f2d43-85b8-4df6-bbe5-ba3912beea11"
+  default     = "95d78883-f5a4-4dc8-971a-4d0e45a33d0f"
 }
 
 variable "pm_tls_insecure" {
