@@ -14,7 +14,6 @@ resource "proxmox_vm_qemu" "proxmox_vm_master" {
   ci_wait     = 10
   scsihw      = "virtio-scsi-pci"
   disk {
-    backup  = true
     cache   = "none"
     size = var.master_disk_size
     type = var.master_disk_type
@@ -55,7 +54,6 @@ resource "proxmox_vm_qemu" "proxmox_vm_workers" {
   ci_wait     = 60
   scsihw      = "virtio-scsi-pci"
   disk {
-    backup  = true
     cache   = "none"
     size = var.node_disk_size
     type = var.node_disk_type
