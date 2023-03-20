@@ -12,6 +12,7 @@ resource "proxmox_vm_qemu" "proxmox_vm_master" {
   memory      = var.num_masters_mem
   cores       = 4
   cpu         = "host"
+  ci_wait     = 2
   disk {
     slot = 0
     size = var.master_disk_size
@@ -25,7 +26,7 @@ resource "proxmox_vm_qemu" "proxmox_vm_master" {
         link_down = false
         model     = "virtio"
     }
-  ipconfig0 = "ip=${var.master_ips[count.index]}/${var.networkrange},gw=${var.gateway}"
+  # ipconfig0 = "ip=${var.master_ips[count.index]}/${var.networkrange},gw=${var.gateway}"
 
   lifecycle {
     ignore_changes = [
@@ -51,6 +52,7 @@ resource "proxmox_vm_qemu" "proxmox_vm_workers" {
   memory      = var.num_nodes_mem
   cores       = 4
   cpu         = "host"
+  ci_wait     = 2
   disk {
     slot = 0
     size = var.node_disk_size
@@ -64,7 +66,7 @@ resource "proxmox_vm_qemu" "proxmox_vm_workers" {
         link_down = false
         model     = "virtio"
     }
-  ipconfig0 = "ip=${var.worker_ips[count.index]}/${var.networkrange},gw=${var.gateway}"
+  # ipconfig0 = "ip=${var.worker_ips[count.index]}/${var.networkrange},gw=${var.gateway}"
 
   lifecycle {
     ignore_changes = [
