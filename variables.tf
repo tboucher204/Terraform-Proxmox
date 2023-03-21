@@ -158,7 +158,11 @@ variable "master_ips" {
   description = "List of ip addresses for master nodes"
   type        = list(string)
   default     = [
-    "192.168.1.80"
+    "192.168.1.80",
+    "192.168.1.81",
+    "192.168.1.82",
+    "192.168.1.83",
+    "192.168.1.84"
   ]
 }
 
@@ -166,8 +170,11 @@ variable "worker_ips" {
   description = "List of ip addresses for worker nodes"
   type        = list(string)
   default     = [  
-    "192.168.1.81",
-    "192.168.1.82"
+    "192.168.1.85",
+    "192.168.1.86",
+    "192.168.1.87",
+    "192.168.1.88",
+    "192.168.1.89"
   ]
 }
 

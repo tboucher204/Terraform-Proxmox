@@ -26,7 +26,7 @@ resource "proxmox_vm_qemu" "proxmox_vm_master" {
         link_down = false
         model     = "virtio"
     }
-  # ipconfig0 = "ip=${var.master_ips[count.index]}/${var.networkrange},gw=${var.gateway}"
+  ipconfig0 = "ip=${var.master_ips[count.index]}/${var.networkrange},gw=${var.gateway}"
 
   lifecycle {
     ignore_changes = [
@@ -66,7 +66,7 @@ resource "proxmox_vm_qemu" "proxmox_vm_workers" {
         link_down = false
         model     = "virtio"
     }
-  # ipconfig0 = "ip=${var.worker_ips[count.index]}/${var.networkrange},gw=${var.gateway}"
+  ipconfig0 = "ip=${var.worker_ips[count.index]}/${var.networkrange},gw=${var.gateway}"
 
   lifecycle {
     ignore_changes = [
