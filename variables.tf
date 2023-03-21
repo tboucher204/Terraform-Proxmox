@@ -151,7 +151,7 @@ variable "node_disk_location" {
 variable "template_vm_name" {
   description = "Name of the template VM"
   type        = string
-  default     = "ubuntu-focal-2023-template"
+  default     = "ubuntu-focal-template"
 }
 
 variable "master_ips" {
