@@ -12,7 +12,6 @@ resource "proxmox_vm_qemu" "proxmox_vm_master" {
   memory      = var.num_masters_mem
   cores       = 4
   ci_wait     = 10
-  cipassword  = var.ci_password
   scsihw      = "virtio-scsi-pci"
   nameserver  = var.nameserver
   searchdomain  = var.searchdomain
@@ -55,7 +54,6 @@ resource "proxmox_vm_qemu" "proxmox_vm_workers" {
   memory      = var.num_nodes_mem
   cores       = 6
   ci_wait     = 60
-  cipassword  = var.ci_password
   scsihw      = "virtio-scsi-pci"
   nameserver  = var.nameserver
   searchdomain  = var.searchdomain
