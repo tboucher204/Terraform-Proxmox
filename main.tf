@@ -12,7 +12,10 @@ resource "proxmox_vm_qemu" "proxmox_vm_master" {
   memory      = var.num_masters_mem
   cores       = 4
   ci_wait     = 10
+  cipassword  = env.ci_password
   scsihw      = "virtio-scsi-pci"
+  nameserver  = var.nameserver
+  searchdomain  = var.searchdomain
   disk {
     cache   = "none"
     size = var.master_disk_size
@@ -52,7 +55,10 @@ resource "proxmox_vm_qemu" "proxmox_vm_workers" {
   memory      = var.num_nodes_mem
   cores       = 6
   ci_wait     = 60
+  cipassword  = env.ci_password
   scsihw      = "virtio-scsi-pci"
+  nameserver  = var.nameserver
+  searchdomain  = var.searchdomain
   disk {
     cache   = "none"
     size = var.node_disk_size

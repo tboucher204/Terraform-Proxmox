@@ -187,3 +187,15 @@ variable "gateway" {
   description = "Enter your network gateway."
   default = "192.168.1.1"
 }
+
+variable "nameserver" {
+  description = "Enter your default DNS server."
+  type        = string
+  default     = "192.168.1.1"
+}
+
+variable "searchdomain" {
+  description = "Enter the search domain"
+  type        = string
+  default     = "theboucher6.com"
+}
