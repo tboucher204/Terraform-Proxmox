@@ -2,14 +2,14 @@ variable "pm_user" {
   description = "The username for the proxmox user"
   type        = string
   sensitive   = false
-  default     = "tboucher204"
+  default     = ""
 
 }
 variable "pm_password" {
   description = "The password for the proxmox user"
   type        = string
   sensitive   = true
-  default     = "73345Map!"
+  default     = ""
 }
 
 variable "pm_api_token_id" {
