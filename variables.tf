@@ -50,9 +50,6 @@ variable "pvt_key" {
   default     = "priv_key"
 }
 
-variable "ci_password" {
-}
-
 variable "num_masters" {
   description = "Enter the number of Master VMs you want"
   default = 1
